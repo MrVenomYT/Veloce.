@@ -1,118 +1,156 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
-  FaFacebook,
   FaInstagram,
   FaLinkedin,
-  FaLocationArrow,
-  FaMobileAlt,
+  FaTwitter,
+  FaYoutube,
 } from "react-icons/fa";
+import { RiMapPinLine, RiPhoneLine, RiMailLine } from "react-icons/ri";
 
-const FooterLinks = [
-  {
-    title: "Home",
-    link: "/#",
-  },
-  {
-    title: "About",
-    link: "/#about",
-  },
-  {
-    title: "Contact",
-    link: "/#contact",
-  },
-  {
-    title: "Blog",
-    link: "/#blog",
-  },
+const fleetLinks = [
+  { title: "BMW M8 Competition", path: "/fleet" },
+  { title: "Porsche Taycan Turbo S", path: "/fleet" },
+  { title: "Mercedes-AMG GT 63 S", path: "/fleet" },
+  { title: "Range Rover SV Autobiography", path: "/fleet" },
+  { title: "Audi RS e-tron GT", path: "/fleet" },
+  { title: "BMW 760i Executive Lounge", path: "/fleet" },
 ];
+
+const hubLinks = [
+  { title: "Los Angeles (LAX Signature)", path: "/contact" },
+  { title: "New York (JFK Sheltair)", path: "/contact" },
+  { title: "Miami (Opa-Locka FBO)", path: "/contact" },
+  { title: "London (Heathrow Windsor)", path: "/contact" },
+  { title: "Dubai (DWC VIP Terminal)", path: "/contact" },
+];
+
+const serviceLinks = [
+  { title: "Private Aviation Tarmac Drop", path: "/#experience" },
+  { title: "Dedicated Chauffeur Protocol", path: "/#experience" },
+  { title: "Sovereign Membership Privileges", path: "/membership" },
+  { title: "Zero-Deductible Coverage & Limits", path: "/security-and-insurance" },
+  { title: "Web Digital Concierge & Passes", path: "/membership" },
+];
+
 const Footer = () => {
   return (
-    <div className="bg-gray-100 dark:bg-dark mt-14 rounded-t-3xl">
-      <section className="container">
-        <div className=" grid md:grid-cols-3 py-5">
-          {/* company Details */}
-          <div className=" py-8 px-4 ">
-            <h1 className="sm:text-3xl text-xl font-bold sm:text-left text-justify mb-3 flex items-center gap-3 font-serif">
-              Car Rental
-            </h1>
-            <p className="text-sm">
-              Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Possimus, voluptate.{" "}
+    <footer className="bg-slate-900 dark:bg-obsidian-950 text-slate-400 text-xs border-t border-slate-800 dark:border-obsidian-800 transition-colors duration-300">
+      <div className="container py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          {/* Brand Column */}
+          <div className="lg:col-span-2 space-y-5">
+            <Link to="/" className="flex items-center gap-2">
+              <span className="w-2.5 h-7 rounded-sm bg-primary block"></span>
+              <span className="text-2xl font-display font-extrabold tracking-tight text-white uppercase">
+                VELOCE<span className="text-primary font-normal">.</span>
+              </span>
+            </Link>
+
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+              The premier sovereign mobility service for private aviation travelers, executives, and automotive connoisseurs. Operating privately-owned fleets in California, New York, Florida, and the United Kingdom.
             </p>
-            <br />
-            <div className="flex items-center gap-3">
-              <FaLocationArrow />
-              <p>Noida, Uttar Pradesh</p>
+
+            <div className="space-y-2 pt-2 text-slate-300">
+              <div className="flex items-center gap-2.5">
+                <RiMapPinLine className="text-primary text-sm shrink-0" />
+                <span>9405 Wilshire Blvd, Beverly Hills, CA 90212</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <RiPhoneLine className="text-primary text-sm shrink-0" />
+                <span>+1 (800) 555-VELOCE (8356)</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <RiMailLine className="text-primary text-sm shrink-0" />
+                <span>concierge@veloce-mobility.com</span>
+              </div>
             </div>
-            <div className="flex items-center gap-3 mt-3">
-              <FaMobileAlt />
-              <p>+91 123456789</p>
-            </div>
-            {/* Social Handle */}
-            <div className="flex items-center gap-3 mt-6">
-              <a href="#">
-                <FaInstagram className="text-3xl hover:text-primary duration-300" />
+
+            {/* Social Links */}
+            <div className="flex items-center gap-3 pt-2 text-slate-400">
+              <a href="#" className="p-2 rounded-lg bg-white/5 hover:bg-primary hover:text-obsidian-950 transition-colors">
+                <FaInstagram size={16} />
               </a>
-              <a href="#">
-                <FaFacebook className="text-3xl hover:text-primary duration-300" />
+              <a href="#" className="p-2 rounded-lg bg-white/5 hover:bg-primary hover:text-obsidian-950 transition-colors">
+                <FaLinkedin size={16} />
               </a>
-              <a href="#">
-                <FaLinkedin className="text-3xl hover:text-primary duration-300" />
+              <a href="#" className="p-2 rounded-lg bg-white/5 hover:bg-primary hover:text-obsidian-950 transition-colors">
+                <FaTwitter size={16} />
+              </a>
+              <a href="#" className="p-2 rounded-lg bg-white/5 hover:bg-primary hover:text-obsidian-950 transition-colors">
+                <FaYoutube size={16} />
               </a>
             </div>
           </div>
-          {/* Links */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 col-span-2 md:pl-10 ">
-            <div className="">
-              <div className="py-8 px-4 ">
-                <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-                  Important Links
-                </h1>
-                <ul className={`flex flex-col gap-3`}>
-                  {FooterLinks.map((link, index) => (
-                    <li key={`imp-${index}`} className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
-                      <span>&#11162;</span>
-                      <span>{link.title}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="">
-              <div className="py-8 px-4 ">
-                <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-                  Links
-                </h1>
-                <ul className="flex flex-col gap-3">
-                  {FooterLinks.map((link, index) => (
-                    <li key={`link-${index}`} className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
-                      <span>&#11162;</span>
-                      <span>{link.title}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="">
-              <div className="py-8 px-4 ">
-                <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-                  Location
-                </h1>
-                {/* <ul className="list-disc list-inside"> */}
-                <ul className="flex flex-col gap-3">
-                  {FooterLinks.map((link, index) => (
-                    <li key={`loc-${index}`} className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
-                      <span>&#11162;</span>
-                      <span>{link.title}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+
+          {/* Col 2: Fleet */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
+              Featured Fleet
+            </h4>
+            <ul className="space-y-2">
+              {fleetLinks.map((item) => (
+                <li key={item.title}>
+                  <Link to={item.path} className="hover:text-primary transition-colors">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 3: Operating Hubs */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
+              Operating Hubs
+            </h4>
+            <ul className="space-y-2">
+              {hubLinks.map((item) => (
+                <li key={item.title}>
+                  <Link to={item.path} className="hover:text-primary transition-colors">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4: Client Services */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
+              Concierge Services
+            </h4>
+            <ul className="space-y-2">
+              {serviceLinks.map((item) => (
+                <li key={item.title}>
+                  <Link to={item.path} className="hover:text-primary transition-colors">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </section>
-    </div>
+
+        {/* Bottom legal bar */}
+        <div className="mt-12 pt-8 border-t border-slate-800 dark:border-obsidian-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+          <p>© 2026 VELOCE Luxury Mobility Group Inc. All rights reserved.</p>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link to="/privacy-policy" className="hover:text-primary transition-colors">
+              Privacy Policy
+            </Link>
+            <span>·</span>
+            <Link to="/terms-and-conditions" className="hover:text-primary transition-colors">
+              Rental Terms & Conditions
+            </Link>
+            <span>·</span>
+            <Link to="/security-and-insurance" className="hover:text-primary transition-colors">
+              Security & Insurance
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 

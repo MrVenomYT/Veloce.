@@ -2,15 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    @apply antialiased text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-obsidian-950 transition-colors duration-300;
+  }
 }
 
 @layer components {
-  .link {
-    @apply cursor-pointer hover:underline;
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary hover:bg-primary-light text-obsidian-950 font-semibold text-sm tracking-wide transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap;
   }
-  .button-outline {
-    @apply rounded-md border-2 border-primary hover:bg-primary/80 hover:text-black duration-500 py-2 px-6 text-primary tracking-wider;
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-neutral-300 dark:border-neutral-700 hover:border-primary/60 dark:hover:border-primary/60 bg-white/80 dark:bg-obsidian-850/80 backdrop-blur-sm text-slate-800 dark:text-slate-200 font-medium text-sm tracking-wide transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-primary text-primary hover:bg-primary hover:text-obsidian-950 font-semibold text-sm tracking-wide transition-all duration-200 whitespace-nowrap;
+  }
+
+  .glass-card {
+    @apply bg-white/90 dark:bg-obsidian-900/90 backdrop-blur-md border border-slate-200/80 dark:border-obsidian-750/80 shadow-sm rounded-xl;
+  }
+
+  .luxury-gradient-text {
+    @apply bg-gradient-to-r from-primary-light via-primary to-amber-200 bg-clip-text text-transparent;
   }
 }
+

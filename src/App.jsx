@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Component import
+// Layout & Global Components
 import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import About from "./components/About/About";
-import Services from "./components/Services/Services";
-import CarList from "./components/CarList/CarList";
-import AppStoreBanner from "./components/AppStoreBanner/AppStoreBanner";
-import Contact from "./components/Contact/Contact";
-import Testimonial from "./components/Testimonial/Testimonial";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+
+// Pages
+import HomePage from "./pages/HomePage";
+import FleetPage from "./pages/FleetPage";
+import MembershipPage from "./pages/MembershipPage";
+import ContactPage from "./pages/ContactPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import RentalTermsPage from "./pages/RentalTermsPage";
+import SecurityInsurancePage from "./pages/SecurityInsurancePage";
 
 const App = () => {
-  // dark mode start
+  // Theme state
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "dark"
   );
 
   useEffect(() => {
@@ -29,29 +33,40 @@ const App = () => {
       localStorage.setItem("theme", "light");
     }
   }, [theme]);
-  // dark mode end
 
-  React.useEffect(() => {
+  useEffect(() => {
     AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: "ease-in-sine",
-      delay: 100,
+      offset: 80,
+      duration: 700,
+      easing: "ease-out-cubic",
+      delay: 50,
+      once: true,
     });
     AOS.refresh();
   }, []);
+
   return (
-    <div className="bg-white dark:bg-black dark:text-white text-black overflow-x-hidden">
-      <Navbar theme={theme} setTheme={setTheme} />
-      <Hero theme={theme} />
-      <About />
-      <Services />
-      <CarList />
-      <Testimonial />
-      <AppStoreBanner />
-      <Contact />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="bg-slate-50 dark:bg-obsidian-950 text-slate-900 dark:text-slate-100 min-h-screen overflow-x-hidden selection:bg-primary/20 selection:text-primary transition-colors duration-300 flex flex-col justify-between">
+        <Navbar theme={theme} setTheme={setTheme} />
+        
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<HomePage theme={theme} />} />
+            <Route path="/fleet" element={<FleetPage />} />
+            <Route path="/membership" element={<MembershipPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms-and-conditions" element={<RentalTermsPage />} />
+            <Route path="/security-and-insurance" element={<SecurityInsurancePage />} />
+            <Route path="*" element={<HomePage theme={theme} />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
 

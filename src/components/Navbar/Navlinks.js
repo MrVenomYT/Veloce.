@@ -1,22 +1,32 @@
 export const Navlinks = [
   {
     id: 1,
-    name: "HOME",
-    link: "/#",
+    name: "Fleet",
+    path: "/fleet",
   },
   {
     id: 2,
-    name: "CARS",
-    link: "/#cars",
+    name: "Experience",
+    path: "/#experience",
   },
   {
     id: 3,
-    name: "ABOUT",
-    link: "/#about",
+    name: "Advantages",
+    path: "/#advantages",
   },
   {
     id: 4,
-    name: "BOOKING",
-    link: "/#booking",
+    name: "Membership",
+    path: "/membership",
+  },
+  {
+    id: 5,
+    name: "Insurance",
+    path: "/security-and-insurance",
+  },
+  {
+    id: 6,
+    name: "Contact",
+    path: "/contact",
   },
 ];
