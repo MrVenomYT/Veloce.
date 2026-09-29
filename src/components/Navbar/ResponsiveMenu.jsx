@@ -1,7 +1,7 @@
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 
-import { Navlinks } from "./Navbar";
+import { Navlinks } from "./Navlinks";
 
 const ResponsiveMenu = ({ showMenu }) => {
   console.log("showMenu", showMenu);
@@ -21,8 +21,8 @@ const ResponsiveMenu = ({ showMenu }) => {
         </div>
         <nav className="mt-12">
           <ul className="space-y-4 text-xl">
-            {Navlinks.map((data) => (
-              <li>
+            {Navlinks.map((data, index) => (
+              <li key={`${data.name}-${index}`}>
                 <a href={data.link} className="mb-5 inline-block">
                   {data.name}
                 </a>

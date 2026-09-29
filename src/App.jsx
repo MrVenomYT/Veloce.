@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -18,9 +18,9 @@ const App = () => {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
-  const element = document.documentElement;
 
   useEffect(() => {
+    const element = document.documentElement;
     if (theme === "dark") {
       element.classList.add("dark");
       localStorage.setItem("theme", "dark");

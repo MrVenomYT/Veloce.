@@ -35,15 +35,16 @@ const CarList = () => {
         >
           Lorem ipsum dolor
         </h1>
-        <p data-aos="fade-up" aos-delay="400" className="text-sm pb-10">
+        <p data-aos="fade-up" data-aos-delay="400" className="text-sm pb-10">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure
           nemo ab?
         </p>
         {/* Car listing */}
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
-            {carList.map((data) => (
+            {carList.map((data, index) => (
               <div
+                key={`${data.name}-${index}`}
                 data-aos="fade-up"
                 data-aos-delay={data.aosDelay}
                 className="space-y-3 border-2 border-gray-300 hover:border-primary p-3 rounded-xl relative group"

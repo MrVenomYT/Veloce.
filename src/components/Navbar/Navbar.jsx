@@ -2,29 +2,8 @@ import React, { useState } from "react";
 import { BiSolidSun, BiSolidMoon } from "react-icons/bi";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
+import { Navlinks } from "./Navlinks";
 
-export const Navlinks = [
-  {
-    id: 1,
-    name: "HOME",
-    link: "/#",
-  },
-  {
-    id: 2,
-    name: "CARS",
-    link: "/#cars",
-  },
-  {
-    id: 1,
-    name: "ABOUT",
-    link: "/#about",
-  },
-  {
-    id: 1,
-    name: "BOOKING",
-    link: "/#booking",
-  },
-];
 const Navbar = ({ theme, setTheme }) => {
   const [showMenu, setShowMenu] = useState(false);
 
