@@ -1,5 +1,5 @@
 <div align="center">
-
+<img src="https://raw.githubusercontent.com/MrVenomYT/Veloce./e74b8f6da49edd4a7d612dd54aa72fa63fe9950e/src/assets/veloce.jpg" alt="Veloce">
 # VELOCE CORE ENGINE
 ### High-Performance Distributed Systems & Digital Mobility Architecture
 
