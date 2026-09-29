@@ -58,8 +58,13 @@ const App = () => {
             <Route path="/membership" element={<MembershipPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-and-conditions" element={<RentalTermsPage />} />
+            <Route path="/terms-of-service" element={<RentalTermsPage />} />
+            <Route path="/terms" element={<RentalTermsPage />} />
             <Route path="/security-and-insurance" element={<SecurityInsurancePage />} />
+            <Route path="/security" element={<SecurityInsurancePage />} />
+            <Route path="/insurance" element={<SecurityInsurancePage />} />
             <Route path="*" element={<HomePage theme={theme} />} />
           </Routes>
         </main>
